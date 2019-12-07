@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="../plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/><![endif]-->
+    <link href="../assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]><link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css"><![endif]--><!--[if IE 8]><link href="assets/css/ie8.css" rel="stylesheet" type="text/css"/><![endif]-->
+
+    <script type="text/javascript" src="../assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/lodash.compat.min.js"></script><!--[if lt IE 9]><script src="assets/js/libs/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="../plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="../plugins/event.swipe/jquery.event.swipe.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="../plugins/respond/respond.min.js"></script>
+    <script type="text/javascript" src="../plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="../plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="../plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <script type="text/javascript" src="../plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="../plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="../plugins/blockui/jquery.blockUI.min.js"></script>
+    <script type="text/javascript" src="../plugins/uniform/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="../plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables/jquery.dataTables.min.js"></script>
+    <!--<script type="text/javascript" src="../plugins/datatables/tabletools/TableTools.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables/colvis/ColVis.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables/columnfilter/jquery.dataTables.columnFilter.js"></script>-->
+    <script type="text/javascript" src="../plugins/datatables/DT_bootstrap.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins.form-components.js"></script>
+
+    <script type="text/javascript" src="../assets/js/custom.js"></script>
+    <script src="../script/UrlApi.js"></script>
+    <script src="../script/CookieUser.js"></script>
+    <script src="../script/BaseInfo.js"></script>
+    
+    <script>$(document).ready(function () { App.init(); Plugins.init(); FormComponents.init(); GetBaseType();  });</script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+
+<body>
+    <div id="container">
+
+        <div   id="myModal"  role="dialog" aria-labelledby="myModalLabel" style="display:none; z-index:1040; position:fixed; top:180px; right:0;bottom:0;left:0;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hidmyModal()"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">新增</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="txt_departmentname">名称</label>
+                            <input type="text" name="txt_ddi_name" class="form-control" id="txt_ddi_name">
+                            <input id="hid_ddi_seq" type="hidden" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_parentdepartment">代码</label>
+                            <input type="text" name="txt_ddi_value" class="form-control" id="txt_ddi_value">
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_departmentlevel">描述</label>
+                            <input type="text" name="txt_ddi_desc" class="form-control" id="txt_ddi_desc" >
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_statu">排序</label>
+                            <input type="text" name="txt_ddi_order" class="form-control" id="txt_ddi_order" >
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="hidmyModal()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                        <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal" onclick="SaveItem();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="content" style="margin-left:0px;">
+            <div class="container">
+                <div class="crumbs">
+                    <ul id="breadcrumbs" class="breadcrumb">
+                        <li>
+                            <i class="icon-home">
+                            </i>
+                            <a href="#">
+                                系统配置管理
+                            </a>
+                        </li>
+                        <li class="current">
+                            <a href="#" title="">
+                                基础信息
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="row" style="padding-top:20px;">
+                    <div class="col-md-12">
+                        <div class="widget box">
+                            <div class="widget-header">
+                                <h4><i class="icon-reorder"></i> 基础信息</h4>
+                                <div class="toolbar no-padding">
+                                    <div class="btn-group"> <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span> </div>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="alert alert-info fade in" style="text-align:right;">
+                                    <button class="btn btn-info" onclick="insert()">
+                                        新&nbsp;&nbsp;&nbsp;&nbsp;增
+                                    </button>
+                                    <input id="hidTypeCode" type="hidden" value="0" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="width:25%;">
+                                        <div class="widget box">
+                                            <div class="widget-header">
+                                                <h4>
+                                                    <i class="icon-reorder">
+                                                    </i>
+                                                    数据名称
+                                                </h4>
+                                                <div class="toolbar no-padding">
+
+                                                </div>
+                                            </div>
+                                            <div class="widget-content">
+                                                <table class="table table-hover table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width:36px;">
+
+                                                            </th>
+                                                            <th>
+                                                                数据类别
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="BaseTypeList">
+                                                        <tr>
+                                                            <td class="checkbox-column">
+                                                                <input type="checkbox" class="uniform" onclick="checkState()" typeCode="aa">
+                                                            </td>
+                                                            <td>
+                                                                Joey
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="width:74%;">
+                                        <div class="widget box">
+                                            <div class="widget-header">
+                                                <h4>
+                                                    <i class="icon-reorder">
+                                                    </i>
+                                                    数据条目
+                                                </h4>
+                                                <div class="toolbar no-padding">
+
+                                                </div>
+                                            </div>
+                                            <div class="widget-content">
+                                                <table class="table table-hover table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                名称
+                                                            </th>
+                                                            <th>
+                                                                代码
+                                                            </th>
+                                                            <th>
+                                                                描述
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                排序
+                                                            </th>
+                                                            <th>
+                                                                操作
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="BaseMXList">
+                                                      
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+  
+</body>
+</html>

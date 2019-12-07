@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="../plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/><![endif]-->
+    <link href="../assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]><link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css"><![endif]--><!--[if IE 8]><link href="assets/css/ie8.css" rel="stylesheet" type="text/css"/><![endif]-->
+
+    <script type="text/javascript" src="../assets/js/libs/jquery-1.10.2.min.js">
+    </script>
+    <script type="text/javascript" src="../plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js">
+    </script>
+
+    <script src="../assets/js/charts.js"></script>
+    <!--<script src="../assets/js/chartThemes.js"></script>
+    <script src="../assets/js/highcharts.js"></script>
+    <script src="../assets/js/exporting.src.js"></script>-->
+
+    <script src="../script/UrlApi.js"></script>
+    <script src="../script/CookieUser.js"></script>
+
+
+    <!--<script>$(document).ready(function () { App.init(); Plugins.init(); FormComponents.init();  });</script>-->
+    <style type="text/css">
+    </style>
+
+</head>
+
+
+<body>
+    <div id="container">
+
+        <div id="content" style="margin-left:0px;">
+            <div class="container">
+                <div class="crumbs">
+                    <ul id="breadcrumbs" class="breadcrumb">
+                        <li>
+                            <i class="icon-home">
+                            </i>
+                            <a href="#">
+                                防区管理
+                            </a>
+                        </li>
+                        <li class="current">
+                            <a href="#" title="">
+                                防区波形图
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="row" style="padding-top:20px;">
+                    <div class="col-md-12">
+                        <div class="widget box">
+                            <div class="widget-header" >
+                                <h4 onclick="aa();"><i class="icon-reorder"></i> 防区波形图</h4>
+                                <div class="toolbar no-padding">
+                                    <div class="btn-group"> <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span> </div>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8" style="width:90%;">
+                                            <h2 class="text-center">防区波形</h2>
+                                            <canvas id="lines-graph"></canvas>
+                                        </div>
+                                      
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="ds">
+         
+        </div>
+
+    </div>
+</body>
+</html>
+
+<script src="../assets/js/Chart.bundle.min.js"></script>
+<script>
+    //function aa() {
+    //    for (var i = 0; i < 30; i++)
+    //        $("#ds").append((Math.random() * 5).toFixed(2)+" -  ");
+        
+    //}
+     var index_data = new Array(3000);
+    for (var i = 0; i < 1500; i++) {
+        index_data[i] = (Math.random() * 1).toFixed(1);
+    }
+    for (var i = 1500; i < 1600; i++) {
+        index_data[i] = (Math.random() * 4).toFixed(1);
+    }
+    for (var i = 1600; i < 3000; i++) {
+        index_data[i] = (Math.random() * 1).toFixed(1);
+    }
+
+
+    ////var dslist = "1,2,3,4,5,6,7,8,9,10,11,12"; 
+    var index_bit = new Array(3000);
+    for (var i = 0; i < 3000; i++) {
+        index_bit[i] = (i + 1);
+    }
+                              //["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+       // Data for line charts
+    var lineChartData = {
+        labels: 
+            index_bit
+        ,
+        datasets: [
+            {
+                label: "防区一",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: index_data,
+                spanGaps: false,
+            } 
+        ]
+        
+    };
+
+
+     var ctx = document.getElementById("lines-graph").getContext("2d");
+    var LineChart = new Chart(ctx, {
+        type: 'line',
+        data: lineChartData,
+        responsive: true,
+        bezierCurve: false
+    });
+     
+   
+</script>

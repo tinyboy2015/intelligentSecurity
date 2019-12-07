@@ -1,0 +1,365 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD84850C-DB6C-41EE-9EA0-13B6596E6770}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApi</RootNamespace>
+    <AssemblyName>WebApi</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefenceArea\GetDefenceAreaLines.aspx" />
+    <Content Include="DefenceArea\SetDefenceArea.aspx" />
+    <Content Include="DefenceArea\SetDefenceAreaDel.aspx" />
+    <Content Include="Device\GetCameraSettingInfo.aspx" />
+    <Content Include="Device\SetCameraSetting.aspx" />
+    <Content Include="GetAuthenticationGroupList.aspx" />
+    <Content Include="GetAuthenticationMenuList.aspx" />
+    <Content Include="GetBaseInfoType.aspx" />
+    <Content Include="GetBaseItemInfo.aspx" />
+    <Content Include="GetBaseItemList.aspx" />
+    <Content Include="GetCompanyInfo.aspx" />
+    <Content Include="GetDefalutValue.aspx" />
+    <Content Include="GetDefenceAreaSettingList.aspx" />
+    <Content Include="GetDefenceAreaSettingSet.aspx" />
+    <Content Include="GetDeviceInfo.aspx" />
+    <Content Include="GetDeviceList.aspx" />
+    <Content Include="GetLogin.aspx" />
+    <Content Include="GetTreeMenu.aspx" />
+    <Content Include="GetUserInfo.aspx" />
+    <Content Include="GetUserList.aspx" />
+    <Content Include="SetAuthentication.aspx" />
+    <Content Include="SetBaseItem.aspx" />
+    <Content Include="SetBaseItemDel.aspx" />
+    <Content Include="SetCompanyInfo.aspx" />
+    <Content Include="SetDafaultValue.aspx" />
+    <Content Include="SetDefenceAreaSetting.aspx" />
+    <Content Include="SetDefenceAreaSettingDel.aspx" />
+    <Content Include="SetDeviceInfo.aspx" />
+    <Content Include="SetUserInfo.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefenceArea\GetDefenceAreaLines.aspx.cs">
+      <DependentUpon>GetDefenceAreaLines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefenceArea\GetDefenceAreaLines.aspx.designer.cs">
+      <DependentUpon>GetDefenceAreaLines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefenceArea\SetDefenceArea.aspx.cs">
+      <DependentUpon>SetDefenceArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefenceArea\SetDefenceArea.aspx.designer.cs">
+      <DependentUpon>SetDefenceArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefenceArea\SetDefenceAreaDel.aspx.cs">
+      <DependentUpon>SetDefenceAreaDel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefenceArea\SetDefenceAreaDel.aspx.designer.cs">
+      <DependentUpon>SetDefenceAreaDel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Device\GetCameraSettingInfo.aspx.cs">
+      <DependentUpon>GetCameraSettingInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Device\GetCameraSettingInfo.aspx.designer.cs">
+      <DependentUpon>GetCameraSettingInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Device\SetCameraSetting.aspx.cs">
+      <DependentUpon>SetCameraSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Device\SetCameraSetting.aspx.designer.cs">
+      <DependentUpon>SetCameraSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAuthenticationGroupList.aspx.cs">
+      <DependentUpon>GetAuthenticationGroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetAuthenticationGroupList.aspx.designer.cs">
+      <DependentUpon>GetAuthenticationGroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAuthenticationMenuList.aspx.cs">
+      <DependentUpon>GetAuthenticationMenuList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetAuthenticationMenuList.aspx.designer.cs">
+      <DependentUpon>GetAuthenticationMenuList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetBaseInfoType.aspx.cs">
+      <DependentUpon>GetBaseInfoType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetBaseInfoType.aspx.designer.cs">
+      <DependentUpon>GetBaseInfoType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetBaseItemInfo.aspx.cs">
+      <DependentUpon>GetBaseItemInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetBaseItemInfo.aspx.designer.cs">
+      <DependentUpon>GetBaseItemInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetBaseItemList.aspx.cs">
+      <DependentUpon>GetBaseItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetBaseItemList.aspx.designer.cs">
+      <DependentUpon>GetBaseItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetCompanyInfo.aspx.cs">
+      <DependentUpon>GetCompanyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetCompanyInfo.aspx.designer.cs">
+      <DependentUpon>GetCompanyInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetDefalutValue.aspx.cs">
+      <DependentUpon>GetDefalutValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetDefalutValue.aspx.designer.cs">
+      <DependentUpon>GetDefalutValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetDefenceAreaSettingList.aspx.cs">
+      <DependentUpon>GetDefenceAreaSettingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetDefenceAreaSettingList.aspx.designer.cs">
+      <DependentUpon>GetDefenceAreaSettingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetDefenceAreaSettingSet.aspx.cs">
+      <DependentUpon>GetDefenceAreaSettingSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetDefenceAreaSettingSet.aspx.designer.cs">
+      <DependentUpon>GetDefenceAreaSettingSet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetDeviceInfo.aspx.cs">
+      <DependentUpon>GetDeviceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetDeviceInfo.aspx.designer.cs">
+      <DependentUpon>GetDeviceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetDeviceList.aspx.cs">
+      <DependentUpon>GetDeviceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetDeviceList.aspx.designer.cs">
+      <DependentUpon>GetDeviceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetLogin.aspx.cs">
+      <DependentUpon>GetLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetLogin.aspx.designer.cs">
+      <DependentUpon>GetLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetTreeMenu.aspx.cs">
+      <DependentUpon>GetTreeMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetTreeMenu.aspx.designer.cs">
+      <DependentUpon>GetTreeMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserInfo.aspx.cs">
+      <DependentUpon>GetUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetUserInfo.aspx.designer.cs">
+      <DependentUpon>GetUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserList.aspx.cs">
+      <DependentUpon>GetUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetUserList.aspx.designer.cs">
+      <DependentUpon>GetUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetAuthentication.aspx.cs">
+      <DependentUpon>SetAuthentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetAuthentication.aspx.designer.cs">
+      <DependentUpon>SetAuthentication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetBaseItem.aspx.cs">
+      <DependentUpon>SetBaseItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetBaseItem.aspx.designer.cs">
+      <DependentUpon>SetBaseItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetBaseItemDel.aspx.cs">
+      <DependentUpon>SetBaseItemDel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetBaseItemDel.aspx.designer.cs">
+      <DependentUpon>SetBaseItemDel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetCompanyInfo.aspx.cs">
+      <DependentUpon>SetCompanyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetCompanyInfo.aspx.designer.cs">
+      <DependentUpon>SetCompanyInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetDafaultValue.aspx.cs">
+      <DependentUpon>SetDafaultValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetDafaultValue.aspx.designer.cs">
+      <DependentUpon>SetDafaultValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetDefenceAreaSetting.aspx.cs">
+      <DependentUpon>SetDefenceAreaSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetDefenceAreaSetting.aspx.designer.cs">
+      <DependentUpon>SetDefenceAreaSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetDefenceAreaSettingDel.aspx.cs">
+      <DependentUpon>SetDefenceAreaSettingDel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetDefenceAreaSettingDel.aspx.designer.cs">
+      <DependentUpon>SetDefenceAreaSettingDel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetDeviceInfo.aspx.cs">
+      <DependentUpon>SetDeviceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetDeviceInfo.aspx.designer.cs">
+      <DependentUpon>SetDeviceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetUserInfo.aspx.cs">
+      <DependentUpon>SetUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetUserInfo.aspx.designer.cs">
+      <DependentUpon>SetUserInfo.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicTools\BasicTools.csproj">
+      <Project>{b117de7b-6ecc-4d7f-a125-688d5d35b2ae}</Project>
+      <Name>BasicTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessOpClassLibrary\BusinessOpClassLibrary.csproj">
+      <Project>{ab94ede7-af56-4c7a-9a35-7beeb4f4da32}</Project>
+      <Name>BusinessOpClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseOpClassLibrary\DatabaseOpClassLibrary.csproj">
+      <Project>{6ab13cf9-7658-4315-8438-42f7ae90c300}</Project>
+      <Name>DatabaseOpClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityClassLibrary\EntityClassLibrary.csproj">
+      <Project>{8669eb11-c91f-4362-8731-622d0d8f7952}</Project>
+      <Name>EntityClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="upload\Company\" />
+    <Folder Include="upload\DefaultValue\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55489</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55489/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

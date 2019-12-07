@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="../plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/><![endif]-->
+    <link href="../assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome/font-awesome.min.css">
+    <!--[if IE 7]><link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css"><![endif]--><!--[if IE 8]><link href="assets/css/ie8.css" rel="stylesheet" type="text/css"/><![endif]-->
+
+    <script type="text/javascript" src="../assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/lodash.compat.min.js"></script><!--[if lt IE 9]><script src="assets/js/libs/html5shiv.js"></script><![endif]-->
+    <script type="text/javascript" src="../plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="../plugins/event.swipe/jquery.event.swipe.js"></script>
+    <script type="text/javascript" src="../assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="../plugins/respond/respond.min.js"></script>
+    <script type="text/javascript" src="../plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="../plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="../plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <script type="text/javascript" src="../plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="../plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="../plugins/blockui/jquery.blockUI.min.js"></script>
+    <script type="text/javascript" src="../plugins/uniform/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="../plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables/jquery.dataTables.min.js"></script>
+    <!--<script type="text/javascript" src="../plugins/datatables/tabletools/TableTools.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables/colvis/ColVis.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables/columnfilter/jquery.dataTables.columnFilter.js"></script>-->
+    <script type="text/javascript" src="../plugins/datatables/DT_bootstrap.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins.form-components.js"></script>
+
+    <script type="text/javascript" src="../assets/js/custom.js"></script>
+    <script src="../script/UrlApi.js"></script>
+    <script src="../script/CookieUser.js"></script>
+    <script src="../script/Device/CameraSetting.js"></script>
+
+    <script>$(document).ready(function () { App.init(); Plugins.init(); FormComponents.init();  });</script>
+    <style type="text/css">
+        .ComStyle {
+            margin: 10px 5px auto 5px;
+            border-radius: 10px;
+            text-align: center;
+            width: 120px;
+            height: 100px;
+            line-height: 100px;
+            /*background-image:url("../images/sxt.png");
+            background-repeat:no-repeat;
+            background-position:center;*/
+            background:url("../images/sxt.png") center no-repeat;
+            background-size:cover;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            float: left;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="container">
+
+        <div id="myModal" role="dialog" aria-labelledby="myModalLabel" style="display:none; z-index:1040; position:fixed; top:180px; right:0;bottom:0;left:0;">
+            <div class="modal-dialog" role="document" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hidmyModal()"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">新增</h4>
+                        <input id="DI_DeviceID" type="hidden" />
+                        <input id="HIDDI_ID" type="hidden" value="" />
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txt_departmentname">名称</label>
+                            <input type="text" name="DIC_NameID" class="form-control" id="DIC_NameID">
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_parentdepartment">品牌</label>
+                            <select id="DIC_Type" name="DIC_Type" class="form-control">
+                                <option></option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_departmentlevel">IP地址</label>
+                            <input type="text" name="DIC_IP" class="form-control" id="DIC_IP">
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_statu">用户名</label>
+                            <input type="text" name="DIC_Admin" class="form-control" id="DIC_Admin">
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_statu">密码</label>
+                            <input type="text" name="DIC_Pwd" class="form-control" id="DIC_Pwd">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="hidmyModal()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                        <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal" onclick="SaveItem();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="content" style="margin-left:0px;">
+            <div class="container">
+                <div class="crumbs">
+                    <ul id="breadcrumbs" class="breadcrumb">
+                        <li>
+                            <i class="icon-home">
+                            </i>
+                            <a href="#">
+                                系统配置管理
+                            </a>
+                        </li>
+                        <li class="current">
+                            <a href="../Configure/DeviceInfo.html" title="">
+                                设备管理
+                            </a>
+                        </li>
+                        <li class="current">
+                            <a href="#" title="">
+                                设备配置
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="row" style="padding-top:20px;">
+                    <div class="col-md-12">
+                        <div class="widget box">
+                            <div class="widget-header">
+                                <h4><i class="icon-reorder"></i> 设备配置</h4>
+                                <div class="toolbar no-padding">
+                                    <div class="btn-group"> <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span> </div>
+                                </div>
+                            </div>
+                            <div class="widget-content" style="height:600px;">
+                                <div class="alert alert-info fade in" style="text-align:right;">
+                                    <button class="btn btn-info" onclick="insert()">
+                                        新&nbsp;&nbsp;&nbsp;&nbsp;增
+                                    </button>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <div class="row" id="sblist">
+                                            <div class="ComStyle" onclick="UpateSet('id');">
+                                                <i class="icon-remove close" onclick="DelSet('id')"></i>
+                                                
+                                            </div>
+                                            <div class="ComStyle">
+                                                
+                                            </div>
+                                            <div class="ComStyle">
+                                                COM1
+                                            </div>
+                                            <div class="ComStyle">
+                                                COM1
+                                            </div>
+                                            <div class="ComStyle">
+                                                COM1
+                                            </div>
+                                            <div class="ComStyle">
+                                                COM1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>HTML5 Canvas入门示例</title>
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js">
+    </script>
+   
+        <style type="text/css">
+            #_canvas {
+                //background-color: rgb(240,240,240);
+                background: url("images/map.jpg") center top no-repeat;
+        }
+        </style>
+</head >
+<body>
+    <canvas id="_canvas">sorry, your broswer does not support html5!</canvas>
+    <div id="aaa" style="border:2px solid #ff6a00; width:400px; height:100px; "></div>
+    <div id="bbb" style="border:2px solid #ff6a00; width:400px; height:100px;"></div>
+    <script type="text/javascript">
+        var canvas_ = document.getElementById("_canvas");
+
+        //全屏
+        canvas_.setAttribute("width", "1200");
+        canvas_.setAttribute("height", "700");
+
+
+        var context = canvas_.getContext("2d");
+        context.strokeStyle = "blue";
+        context.lineWidth = 6;
+
+        var array_paint = [];
+        var current_y = 0;
+        var current_x = 0;
+        //判断鼠标是否按下
+        var m_down = false;
+
+
+        array_paint.push([183, 46]);
+        array_paint.push([184, 46]);
+        array_paint.push([188, 46]);
+        array_paint.push([194, 48]);
+        paint();
+        array_paint = [];
+
+
+        function paint() {
+            context.beginPath();
+            context.moveTo(array_paint[0][0], array_paint[0][1]);
+            if (array_paint.length == 1)
+                context.lineTo(array_paint[0][0] + 1, array_paint[0][1] + 1);
+            else {
+                var i = 1;
+                for (i in array_paint) {
+                    context.lineTo(array_paint[i][0], array_paint[i][1]);
+                    context.moveTo(array_paint[i][0], array_paint[i][1]);
+                }
+
+            }
+            context.closePath();
+            context.stroke();
+        }
+
+
+        //按下鼠标
+        canvas_.onmousedown = function (event) {
+
+            m_down = true;
+            current_x = event.offsetX;
+            current_y = event.offsetY;
+            array_paint.push([current_x, current_y]);
+            $("#aaa").append("[" + current_x + ", " + current_y + "]");
+            paint();
+
+        }
+
+
+        //鼠标松开,清空数据
+        canvas_.onmouseup = function (event) {
+            m_down = false;
+            array_paint = [];
+            alert("jj");
+        }
+
+
+        //鼠标按下后拖动
+        canvas_.onmousemove = function (event) {
+            if (m_down) {
+                current_x = event.offsetX;
+                current_y = event.offsetY;
+                array_paint.push([current_x, current_y]);
+                  $("#bbb").append("[" + current_x + ", " + current_y + "]");
+                paint();
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+<script>
+    var dslist = "1,2,3,4,5,6,7,8,9,10,11,12";                        //["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+    // Data for line charts
+    var lineChartData = {
+        labels: [
+            dslist
+        ],
+        datasets: [
+            {
+                label: "防区一",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [0.5, 0.5, 0.5, 2.5, 2.3, 3.0, 2.8, 2.7, 2.0, 0.5, 0.5, 0.5, 0.5],
+                spanGaps: false,
+            } //,
+            //    {
+            //        label: "防区二",
+            //        fill: false,
+            //        lineTension: 0.1,
+            //        backgroundColor:  "#FFCE56", // "rgba(75,192,192,0.4)",
+            //        borderColor:   "#FFCE56",
+            //        borderCapStyle: 'butt',
+            //        borderDash: [],
+            //        borderDashOffset: 0.0,
+            //        borderJoinStyle: 'miter',
+            //        pointBorderColor: "#FFCE56",
+            //        pointBackgroundColor: "#fff",
+            //        pointBorderWidth: 1,
+            //        pointHoverRadius: 5,
+            //        pointHoverBackgroundColor:  "#FFCE56",
+            //        pointHoverBorderColor: "#FFCE56",
+            //        pointHoverBorderWidth: 2,
+            //        pointRadius: 1,
+            //        pointHitRadius: 10,
+            //        data: [90, 70, 85, 88, 90, 55, 50, 70, 85, 88, 90, 55, 50],
+            //        spanGaps: false,
+            //    }
+        ]
+
+    };
+
+    var ctx = document.getElementById("lines-graph").getContext("2d");
+    var LineChart = new Chart(ctx, {
+        type: 'line',
+        data: lineChartData,
+        responsive: true,
+        bezierCurve: false
+    });
+
+
+
+    // Bar Charts
+    //var barChartData = {
+    //    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    //    datasets: [
+    //        {
+    //            label: "My First dataset",
+    //            backgroundColor: [
+    //                'rgba(255, 99, 132, 0.2)',
+    //                'rgba(54, 162, 235, 0.2)',
+    //                'rgba(255, 206, 86, 0.2)',
+    //                'rgba(75, 192, 192, 0.2)',
+    //                'rgba(153, 102, 255, 0.2)',
+    //                'rgba(255, 159, 64, 0.2)'
+    //            ],
+    //            borderColor: [
+    //                'rgba(255,99,132,1)',
+    //                'rgba(54, 162, 235, 1)',
+    //                'rgba(255, 206, 86, 1)',
+    //                'rgba(75, 192, 192, 1)',
+    //                'rgba(153, 102, 255, 1)',
+    //                'rgba(255, 159, 64, 1)'
+    //            ],
+    //            borderWidth: 1,
+    //            data: [65, 59, 80, 81, 56, 55, 40],
+    //        }
+    //    ]
+    //};
+
+    //var ctx = document.getElementById("bars-graph").getContext("2d");
+    //var BarChart = new Chart(ctx, {
+    //    type: 'bar',
+    //    data: barChartData,
+    //    responsive: true
+    //});
+
+    //// Data for pie chart
+    //var pieData = {
+    //    labels: [
+    //        "Red",
+    //        "Blue",
+    //        "Yellow"
+    //    ],
+    //    datasets: [
+    //        {
+    //            data: [300, 50, 100],
+    //            backgroundColor: [
+    //                "#FF6384",
+    //                "#36A2EB",
+    //                "#FFCE56"
+    //            ],
+    //            hoverBackgroundColor: [
+    //                "#FF6384",
+    //                "#36A2EB",
+    //                "#FFCE56"
+    //            ]
+    //        }]
+    //};
+
+    //var ctx = document.getElementById("pie-graph").getContext("2d");
+    //var PieChart = new Chart(ctx, {
+    //    type: 'pie',
+    //    data: pieData
+    //});
+
+
+    //// Data for doughnut chart
+    //var doughnutData = {
+    //    labels: [
+    //        "Red",
+    //        "Blue",
+    //        "Yellow"
+    //    ],
+    //    datasets: [
+    //        {
+    //            data: [300, 50, 100],
+    //            backgroundColor: [
+    //                "#FF6384",
+    //                "#36A2EB",
+    //                "#FFCE56"
+    //            ],
+    //            hoverBackgroundColor: [
+    //                "#FF6384",
+    //                "#36A2EB",
+    //                "#FFCE56"
+    //            ]
+    //        }]
+    //};
+
+    //var ctx = document.getElementById("doughnut-graph").getContext("2d");
+    //var DoughnutChart = new Chart(ctx, {
+    //    type: 'doughnut',
+    //    data: doughnutData,
+    //    responsive: true
+    //});
+
+
+
+</script>

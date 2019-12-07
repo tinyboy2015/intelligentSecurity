@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>求实飞博智能安防管理平台</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.0.css">
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="script/CookieUser.js"></script>
+    <script src="script/UrlApi.js"></script>
+    <style type="text/css">
+        input {
+            line-height: 30px;
+            width: 200px;
+            border: 1px solid #d8d6d6;
+            background-color: #d8d6d6;
+            padding-left: 8px;
+        }
+
+        button {
+            width: 80px;
+            line-height: 30px;
+            border: 0px;
+            background-color: #0489fa;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contPar" class="contPar" style="">
+        <div id="page1" style="z-index:1; ">
+            <div class="title0">智能安防管理平台</div>
+            <div class="title1">工业、家居、科技、公共安全、大数据</div>
+            <div class="imgGroug">
+                <ul>
+                    <img alt="" class="img0 png" src="./img/page1_0.png">
+                    <img alt="" class="img1 png" src="./img/page1_1.png">
+                    <img alt="" class="img2 png" src="./img/page1_2.png">
+                </ul>
+            </div>
+            <img alt="" class="img3 png" src="./img/page1_3.jpg">
+            <div class="title1" style="top:100%; ">
+                <input type="text" id="username" placeholder="  请输入账号..." /> <input type="text" id="password" placeholder="  请输入密码..." />  <button type="submit" onclick="tz()">登&nbsp;&nbsp;录</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript" src="js/com.js"></script>
+<script>
+    function tz() {
+        //获取内容
+        var name = $("#username").val();
+        var pwd = $("#password").val();
+        if (name == "") {
+            alert('请输入用户名！');
+            return;
+        }
+
+        if (pwd == "") {
+            alert('请输入密码！');
+            return;
+        }
+
+        //添加参数
+        var param = {
+            username: name,
+            password: pwd,
+        };
+
+        $.ajax({
+            url: apiurl + "GetLogin.aspx",
+            type: 'post',
+            data: param, //参数
+            success: function (result) {//成功后执行的方法
+
+                var ja = JSON.parse(result);
+                if (ja.message == "2000") {
+                    var parsedJson = JSON.parse(ja.returnValue);
+
+                    if (parsedJson.User_canlogin == "1") {
+                        save_cookies(parsedJson.User_seq, parsedJson.User_name);
+                        window.location.href = 'main.html';
+                    }
+                    else {
+                        alert('登录失败!' + ja.returnValue);
+                    }
+
+                }
+                else {
+                    alert('登录失败!' + ja.returnValue);
+                }
+
+            },
+            error: function (result) {//失败执行的方法
+
+                alert("error:" + result.responseText);
+            }
+        });
+
+    }
+
+
+    function save_cookies(User_seq, User_name) {
+        var name = $("#username").val();
+        var pwd = $("#password").val();
+        $.cookie("remember", "true", { expires: 7 });
+        $.cookie("User_seq", User_seq, { expires: 7 });
+        $.cookie("User_name", User_name, { expires: 7 });
+        // $.cookie("qxlevel", User_name, { expires: 7 });
+
+    };
+</script>
+<!--[if IE 6]>
+<script language="javascript" type="text/javascript" src="./script/ie6_png.js"></script>
+<script language="javascript" type="text/javascript">
+DD_belatedPNG.fix(".png");
+</script>
+<![endif]-->

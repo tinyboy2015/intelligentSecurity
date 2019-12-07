@@ -1,0 +1,390 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87E1F717-A7A2-46F2-9EB2-06EE7D5F07BD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebUI</RootNamespace>
+    <AssemblyName>WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\font\fontawesome-webfont.eot" />
+    <Content Include="assets\css\font\fontawesome-webfont.ttf" />
+    <Content Include="assets\css\font\fontawesome-webfont.woff" />
+    <Content Include="assets\js\Chart.bundle.min.js" />
+    <Content Include="assets\js\charts.js" />
+    <Content Include="assets\js\chartThemes.js" />
+    <Content Include="assets\js\exporting.src.js" />
+    <Content Include="assets\js\highcharts.js" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Configure\Authentication.html" />
+    <Content Include="Configure\BaseInfo.html" />
+    <Content Include="Configure\DeviceInfo.html" />
+    <Content Include="Configure\DeviceInfoUpdate.html" />
+    <Content Include="Configure\LogSearch.html" />
+    <Content Include="Configure\UserInfo.html" />
+    <Content Include="Configure\UserInfoUpdate.html" />
+    <Content Include="DefenceArea\DefenceAreaCharts.html" />
+    <Content Include="DefenceArea\DefenceAreaImg.html" />
+    <Content Include="DefenceArea\DefenceAreaSet.html" />
+    <Content Include="Device\CameraSetting.html" />
+    <Content Include="Device\DefenceAreaSetting.html" />
+    <Content Include="images\map.jpg" />
+    <Content Include="images\noimg.png" />
+    <Content Include="images\sxt.png" />
+    <Content Include="images\tb1.png" />
+    <Content Include="images\tb2.png" />
+    <Content Include="images\tb3.png" />
+    <Content Include="plugins\bootbox\%29.html%28i%29%29,c.on%28" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\error.css" />
+    <Content Include="assets\css\fontawesome\font-awesome-ie7.min.css" />
+    <Content Include="assets\css\fontawesome\font-awesome.min.css" />
+    <Content Include="assets\css\font\fontawesome-webfont.svg" />
+    <Content Include="assets\css\icons.css" />
+    <Content Include="assets\css\ie8.css" />
+    <Content Include="assets\css\login.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\plugins.css" />
+    <Content Include="assets\css\plugins\bootstrap-colorpicker.css" />
+    <Content Include="assets\css\plugins\bootstrap-multiselect.css" />
+    <Content Include="assets\css\plugins\bootstrap-switch.css" />
+    <Content Include="assets\css\plugins\bootstrap-wizard.css" />
+    <Content Include="assets\css\plugins\bootstrap-wysihtml5.css" />
+    <Content Include="assets\css\plugins\datatables.css" />
+    <Content Include="assets\css\plugins\datatables_bootstrap.css" />
+    <Content Include="assets\css\plugins\daterangepicker.css" />
+    <Content Include="assets\css\plugins\duallistbox.css" />
+    <Content Include="assets\css\plugins\fullcalendar.css" />
+    <Content Include="assets\css\plugins\jquery-ui.css" />
+    <Content Include="assets\css\plugins\nestable.css" />
+    <Content Include="assets\css\plugins\nprogress.css" />
+    <Content Include="assets\css\plugins\pickadate.css" />
+    <Content Include="assets\css\plugins\select2.css" />
+    <Content Include="assets\css\plugins\tagsinput.css" />
+    <Content Include="assets\css\plugins\typeahead.css" />
+    <Content Include="assets\css\plugins\uniform.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\img\demo\avatar-1.jpg" />
+    <Content Include="assets\img\demo\avatar-2.jpg" />
+    <Content Include="assets\img\demo\avatar-3.jpg" />
+    <Content Include="assets\img\demo\avatar-large.jpg" />
+    <Content Include="assets\img\icons\iconsweets\icos-dark.png" />
+    <Content Include="assets\img\icons\iconsweets\icos-white.png" />
+    <Content Include="assets\img\icons\led\sprite.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\sidebar\sidebar-divider-dots.png" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\assets\img\ajax-loading.gif" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\demo\charts.js" />
+    <Content Include="assets\js\demo\charts\chart_bars_horizontal.js" />
+    <Content Include="assets\js\demo\charts\chart_bars_vertical.js" />
+    <Content Include="assets\js\demo\charts\chart_donut.js" />
+    <Content Include="assets\js\demo\charts\chart_filled_blue.js" />
+    <Content Include="assets\js\demo\charts\chart_filled_green.js" />
+    <Content Include="assets\js\demo\charts\chart_filled_red.js" />
+    <Content Include="assets\js\demo\charts\chart_multiple.js" />
+    <Content Include="assets\js\demo\charts\chart_pie.js" />
+    <Content Include="assets\js\demo\charts\chart_selection_zooming.js" />
+    <Content Include="assets\js\demo\charts\chart_simple.js" />
+    <Content Include="assets\js\demo\charts\chart_updating.js" />
+    <Content Include="assets\js\demo\charts\chart_widget.js" />
+    <Content Include="assets\js\demo\form_components.js" />
+    <Content Include="assets\js\demo\form_validation.js" />
+    <Content Include="assets\js\demo\form_wizard.js" />
+    <Content Include="assets\js\demo\google_maps.js" />
+    <Content Include="assets\js\demo\pages_calendar.js" />
+    <Content Include="assets\js\demo\ui_buttons.js" />
+    <Content Include="assets\js\demo\ui_general.js" />
+    <Content Include="assets\js\demo\ui_nestable_list.js" />
+    <Content Include="assets\js\demo\ui_sliders.js" />
+    <Content Include="assets\js\libs\breakpoints.js" />
+    <Content Include="assets\js\libs\html5shiv.js" />
+    <Content Include="assets\js\libs\jquery-1.10.2.min.js" />
+    <Content Include="assets\js\libs\lodash.compat.min.js" />
+    <Content Include="assets\js\login.js" />
+    <Content Include="assets\js\plugins.form-components.js" />
+    <Content Include="assets\js\plugins.js" />
+    <Content Include="assets\js\plugins\datatables\tabletools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="Configure\CompanyInfo.html" />
+    <Content Include="css\Datacages_Homeindex.css" />
+    <Content Include="css\ProgressBarWars.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\style2.0.css" />
+    <Content Include="css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="css\zTreeStyle\img\diy\2.png" />
+    <Content Include="css\zTreeStyle\img\diy\3.png" />
+    <Content Include="css\zTreeStyle\img\diy\4.png" />
+    <Content Include="css\zTreeStyle\img\diy\5.png" />
+    <Content Include="css\zTreeStyle\img\diy\6.png" />
+    <Content Include="css\zTreeStyle\img\diy\7.png" />
+    <Content Include="css\zTreeStyle\img\diy\8.png" />
+    <Content Include="css\zTreeStyle\img\diy\9.png" />
+    <Content Include="css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="css\zTreeStyle\img\loading.gif" />
+    <Content Include="css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="images\bg_data.png" />
+    <Content Include="images\bg_report.png" />
+    <Content Include="images\bg_top.png" />
+    <Content Include="images\bottom_line.png" />
+    <Content Include="images\center01.png" />
+    <Content Include="images\center02.png" />
+    <Content Include="images\chain_bg.png" />
+    <Content Include="images\hangye.png" />
+    <Content Include="images\Homebodybg.png" />
+    <Content Include="images\icon01.png" />
+    <Content Include="images\icon02.png" />
+    <Content Include="images\icon03.png" />
+    <Content Include="images\icon04.png" />
+    <Content Include="images\icon05.png" />
+    <Content Include="images\icon06.png" />
+    <Content Include="images\line.png" />
+    <Content Include="images\linght_ef.png" />
+    <Content Include="images\new_list01.png" />
+    <Content Include="images\new_list02.png" />
+    <Content Include="images\report01.png" />
+    <Content Include="images\report02.png" />
+    <Content Include="images\zuo2.png" />
+    <Content Include="images\zuoyi.png" />
+    <Content Include="img\1.png" />
+    <Content Include="img\12319rexian.png" />
+    <Content Include="img\aroundeffect.png" />
+    <Content Include="img\baixingpaiAPP.png" />
+    <Content Include="img\fltleftbg.png" />
+    <Content Include="img\fltrightbg.png" />
+    <Content Include="img\Hometitlebg.png" />
+    <Content Include="img\maindataeffect.png" />
+    <Content Include="img\maindataicon.png" />
+    <Content Include="img\maindataspecialeffect.png" />
+    <Content Include="img\next.png" />
+    <Content Include="img\page1_0.png" />
+    <Content Include="img\page1_1.png" />
+    <Content Include="img\page1_2.png" />
+    <Content Include="img\page1_3.jpg" />
+    <Content Include="img\popupboxclosebtn01.png" />
+    <Content Include="img\popupboxclosebtn02.png" />
+    <Content Include="img\pre.png" />
+    <Content Include="img\xingzhengshenpi.png" />
+    <Content Include="img\zhatuyunshu.png" />
+    <Content Include="img\zonghezhifa.png" />
+    <Content Include="js\china.js" />
+    <Content Include="js\com.js" />
+    <Content Include="js\data.js" />
+    <Content Include="js\Datecages_Homeindex.js" />
+    <Content Include="js\demo\jquery.ztree.core-3.5.js" />
+    <Content Include="js\DTU.js" />
+    <Content Include="js\echarts-all.js" />
+    <Content Include="js\echarts.min.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\industry.js" />
+    <Content Include="js\jquery-1.8.0.min.js" />
+    <Content Include="js\jquery-2.2.0.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.ztree.excheck-3.5.js" />
+    <Content Include="js\map.js" />
+    <Content Include="js\online.js" />
+    <Content Include="js\organize.js" />
+    <Content Include="js\PLC.js" />
+    <Content Include="js\ProgressBarWars.js" />
+    <Content Include="js\times.js" />
+    <Content Include="js\vue.min.js" />
+    <Content Include="login.html" />
+    <Content Include="main.html" />
+    <Content Include="plugins\autosize\jquery.autosize.min.js" />
+    <Content Include="plugins\blockui\jquery.blockUI.min.js" />
+    <Content Include="plugins\bootbox\bootbox.min.js" />
+    <Content Include="plugins\bootstrap-colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="plugins\bootstrap-colorpicker\img\alpha.png" />
+    <Content Include="plugins\bootstrap-colorpicker\img\hue.png" />
+    <Content Include="plugins\bootstrap-colorpicker\img\saturation.png" />
+    <Content Include="plugins\bootstrap-inputmask\jquery.inputmask.min.js" />
+    <Content Include="plugins\bootstrap-multiselect\bootstrap-multiselect.min.js" />
+    <Content Include="plugins\bootstrap-switch\bootstrap-switch.min.js" />
+    <Content Include="plugins\bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
+    <Content Include="plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.min.js" />
+    <Content Include="plugins\bootstrap-wysihtml5\wysihtml5.min.js" />
+    <Content Include="plugins\cookie\jquery.cookie.min.js" />
+    <Content Include="plugins\datatables\DT_bootstrap.js" />
+    <Content Include="plugins\datatables\img\sort_asc.png" />
+    <Content Include="plugins\datatables\img\sort_asc_disabled.png" />
+    <Content Include="plugins\datatables\img\sort_both.png" />
+    <Content Include="plugins\datatables\img\sort_desc.png" />
+    <Content Include="plugins\datatables\img\sort_desc_disabled.png" />
+    <Content Include="plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="plugins\datatables\responsive\datatables.responsive.js" />
+    <Content Include="plugins\datatables\responsive\img\minus.png" />
+    <Content Include="plugins\datatables\responsive\img\plus.png" />
+    <Content Include="plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="plugins\daterangepicker\moment.min.js" />
+    <Content Include="plugins\duallistbox\jquery.duallistbox.min.js" />
+    <Content Include="plugins\easy-pie-chart\jquery.easy-pie-chart.min.js" />
+    <Content Include="plugins\event.swipe\jquery.event.move.js" />
+    <Content Include="plugins\event.swipe\jquery.event.swipe.js" />
+    <Content Include="plugins\fileinput\fileinput.js" />
+    <Content Include="plugins\flot\excanvas.min.js" />
+    <Content Include="plugins\flot\jquery.flot.growraf.min.js" />
+    <Content Include="plugins\flot\jquery.flot.min.js" />
+    <Content Include="plugins\flot\jquery.flot.orderBars.min.js" />
+    <Content Include="plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="plugins\flot\jquery.flot.selection.min.js" />
+    <Content Include="plugins\flot\jquery.flot.time.min.js" />
+    <Content Include="plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="plugins\globalize\cultures\globalize.culture.de-DE.js" />
+    <Content Include="plugins\globalize\cultures\globalize.culture.ja-JP.js" />
+    <Content Include="plugins\globalize\globalize.js" />
+    <Content Include="plugins\gmaps\gmaps.min.js" />
+    <Content Include="plugins\inputlimiter\jquery.inputlimiter.min.js" />
+    <Content Include="plugins\jquery-ui\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="plugins\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="plugins\jquery-ui\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="plugins\jquery-ui\jquery.ui.1.10.2.ie.css" />
+    <Content Include="plugins\knob\jquery.knob.min.js" />
+    <Content Include="plugins\nestable\jquery.nestable.min.js" />
+    <Content Include="plugins\noty\jquery.noty.js" />
+    <Content Include="plugins\noty\layouts\top.js" />
+    <Content Include="plugins\noty\themes\default.js" />
+    <Content Include="plugins\nprogress\nprogress.js" />
+    <Content Include="plugins\pickadate\picker.date.js" />
+    <Content Include="plugins\pickadate\picker.js" />
+    <Content Include="plugins\pickadate\picker.time.js" />
+    <Content Include="plugins\respond\respond.min.js" />
+    <Content Include="plugins\select2\select2-spinner.gif" />
+    <Content Include="plugins\select2\select2.min.js" />
+    <Content Include="plugins\select2\select2.png" />
+    <Content Include="plugins\select2\select2x2.png" />
+    <Content Include="plugins\slimscroll\jquery.slimscroll.horizontal.min.js" />
+    <Content Include="plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="plugins\tagsinput\jquery.tagsinput.min.js" />
+    <Content Include="plugins\touchpunch\jquery.ui.touch-punch.min.js" />
+    <Content Include="plugins\typeahead\typeahead.min.js" />
+    <Content Include="plugins\uniform\images\bg-input-focus.png" />
+    <Content Include="plugins\uniform\images\bg-input.png" />
+    <Content Include="plugins\uniform\images\sprite.png" />
+    <Content Include="plugins\uniform\jquery.uniform.min.js" />
+    <Content Include="plugins\validation\additional-methods.min.js" />
+    <Content Include="plugins\validation\jquery.validate.min.js" />
+    <Content Include="script\Authentication.js" />
+    <Content Include="script\BaseInfo.js" />
+    <Content Include="script\CompanyInfo.js" />
+    <Content Include="script\CookieUser.js" />
+    <Content Include="script\DefenceAreaImg.js" />
+    <Content Include="script\DefenceAreaSet.js" />
+    <Content Include="script\DefenceAreaSetting.js" />
+    <Content Include="script\DeviceInfo.js" />
+    <Content Include="script\Device\CameraSetting.js" />
+    <Content Include="script\main.js" />
+    <Content Include="script\UrlApi.js" />
+    <Content Include="script\UserInfo.js" />
+    <Content Include="temp\angular.min.js" />
+    <Content Include="temp\echarts-gl.js" />
+    <Content Include="test.html" />
+    <Content Include="test2.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55496</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55496/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
